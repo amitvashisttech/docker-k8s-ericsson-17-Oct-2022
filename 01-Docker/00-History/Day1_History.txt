@@ -74,3 +74,75 @@
  1401  docker run ubuntu:focal cat /etc/os-release
  1402  docker run ubuntu:latest cat /etc/os-release
 ```
+
+# Demo 4 
+```
+
+ 1409  docker ps
+ 1410  docker run -it ubuntu
+ 1411  docker ps
+ 1412  docker ps -a
+ 1413  docker start 807e5d3709a8
+ 1414  docker ps -a
+ 1415*
+ 1416  docker attach 807e5d3709a8
+ 1417  docker ps
+ 1418  docker ps -a
+ 1419  docker attach 807e5d3709a8
+ 1420  docker start 807e5d3709a8
+ 1421  docker attach 807e5d3709a8
+ 1422  docker ps
+ 1423  docker run -it  --name job1 ubuntu:16.04
+ 1424  docker ps
+ 1425  docker run -it  --name job1 ubuntu:16.04
+ 1426  docker run -it  --name job2 ubuntu:16.04
+ 1427  docker ps
+ 1428  docker run -itd  --name job3 ubuntu:16.04
+ 1429  docker run -itd  --name job4 ubuntu:16.04
+ 1430  docker ps
+ 1431  docker attach job4
+ 1432  docker ps
+ 1433  docker ps -a
+ 1434  cd
+ 1435  docker ps
+ 1436  docker inspect job1
+ 1437  docker ps
+ 1438  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  job1
+ 1439  docker ps -l
+ 1440  docker ps -q
+ 1441  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -q)
+ 1442  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -aq)
+ 1443  docker stop job2
+ 1444  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -aq)
+ 1445  docker start job2
+ 1446  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -aq)
+ 1447  ls
+ 1448  cd docker-k8s-ericsson-17-Oct-2022/
+ 1449  ls
+ 1450  cd 01-Docker/
+ 1451  ls
+ 1452  cd 01-Docker-Installation/
+ 1453  ls
+ 1454  cd ..
+ 1455  ls
+ 1456  cd 00-History/
+ 1457  ls
+ 1458  history
+ 1459  ls
+ 1460  docker images
+ 1461  docker run -d --name test-tiny-1 amitvashist7/k8s-tiny-web
+ 1462  docker ps
+ 1463  docker inspect 258d160f67a6
+ 1464  docker ps
+ 1465  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -aq)
+ 1466  curl 172.17.0.7
+ 1467  docker ps
+ 1468  docker stop test-tiny-1
+ 1469  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -aq)
+ 1470  curl 172.17.0.7
+ 1471  docker start test-tiny-1
+ 1472  docker ps
+ 1473  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -aq)
+ 1474  curl 172.17.0.7
+ 1475  docker run -d --name test-tiny-2 -P  amitvashist7/k8s-tiny-web
+```
