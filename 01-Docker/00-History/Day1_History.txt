@@ -1,0 +1,21 @@
+```
+1307  docker version
+ 1308  docker images
+ 1309  docker rmi $(docker images -q )
+ 1310  docker images
+ 1311  docker rm $(docker ps -qa)
+ 1312  docker ps -qa
+ 1313  docker rmi $(docker images -q )
+ 1314  docker rmi $(docker images -q ) --force
+ 1315  docker images
+ 1316  docker run ubuntu echo "Welcome to the world of docker.!"
+ 1317  docker run ubuntu echo "Hello World Test - 1"
+ 1318  docker images
+ 1319  docker run ubuntu echo "Hello World Test - 2"
+ 1320  docker run ubuntu echo "Hello World Test - 3"
+ 1321  docker run ubuntu echo "Hello World Test - 4"
+ 1322  docker container ls
+ 1323  docker container ls -a
+ 1324  docker run busybox echo "Hello World - 5"
+ 1325  docker container ls -a
+```
