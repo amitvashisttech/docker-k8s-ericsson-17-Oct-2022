@@ -19,3 +19,31 @@
  1324  docker run busybox echo "Hello World - 5"
  1325  docker container ls -a
 ```
+
+# Demo 2 
+```
+
+ 1345  docker search ubuntu
+ 1346  ls
+ 1347  docker logout
+ 1348  docker pull amitvashist7/k8s-tiny-web
+ 1349  docker images
+ 1350  docker pull amitvashist7/apache-ex4
+ 1351  docker login
+ 1352  docker pull amitvashist7/apache-ex4
+ 1353  docker images
+ 1354  docker logout
+ 1355  docker images
+ 1356  docker pull amitvashist7/k8s-tiny-web:2
+ 1357  docker pull amitvashist7/k8s-tiny-web:3
+ 1358  docker images
+ 1359  docker images | grep -i tiny
+ 1360  docker images | grep -i tiny | awk -F" " '{print $3}'
+ 1361  docker rmi $(docker images | grep -i tiny | awk -F" " '{print $3}')
+ 1362  docker images
+ 1363  docker pull amitvashist7/k8s-tiny-web:3
+ 1364  docker pull amitvashist7/k8s-tiny-web:2
+ 1365  docker images
+ 1366  docker pull amitvashist7/k8s-tiny-web
+ 1367  docker images
+```
