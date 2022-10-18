@@ -387,3 +387,82 @@
  1784  docker volume rm $(docker volume ls -q) --force
  1785  docker volume ls
 ```
+
+# Demo 8: ( Docker Network ) 
+```
+ 1800  docker ps
+ 1801  docker ps -a
+ 1802  docker network  ls
+ 1803  docker network inspect bridge
+ 1804  ip addr
+ 1805  docker network inspect bridge
+ 1806  docker run -itd --name net-test-1 ubuntu:16.04
+ 1807  docker ps
+ 1808  docker inspect net-test-1
+ 1809  docker network inspect bridge
+ 1810  docker run -itd --name net-test-2 ubuntu:16.04
+ 1811  docker network inspect bridge
+ 1812  docker run -itd --name net-test-3 ubuntu:16.04
+ 1813  docker attach net-test-3
+ 1814  docker ps
+ 1815  docker network inspect bridge
+ 1816  docker stop net-test-2
+ 1817  docker ps
+ 1818  docker network inspect bridge
+ 1819  docker run -itd --name net-test-4 ubuntu:16.04
+ 1820  docker run -itd --name net-test-5 ubuntu:16.04
+ 1821  docker network inspect bridge
+ 1822  docker start net-test-2
+ 1823  docker network inspect bridge
+ 1824  docker ps
+ 1825  docker images
+ 1826  docker run -d --name net-test-6 amitvashist7/docker-k8s-ericsson-17-oct-2022
+ 1827  docker run -d --name net-test-7 -p 8080:8080 amitvashist7/docker-k8s-ericsson-17-oct-2022
+ 1828  docker ps
+ 1829  history | grep -i format
+ 1830  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -q
+ 1831  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -q)
+ 1832  curl 172.17.0.7:8080
+ 1833  docker ps
+ 1834  netstat -tulnp
+ 1835  systemctl status kubelet
+ 1836  systemctl stop kubelet
+ 1837  ls
+ 1838  netstat -tulnp
+ 1839  systemctl stop nfs-kernal
+ 1840  systemctl stop nfs-
+ 1841  systemctl stop nfs-client.target
+ 1842  netstat -tulnp
+ 1843  docker ps
+ 1844  systemctl  status docker
+ 1845  docker ps
+ 1846  docker run -d --name net-test-8 -p 8080:8080 amitvashist7/docker-k8s-ericsson-17-oct-2022
+ 1847  docker run -d --name net-test-9 -p 8080:8080 amitvashist7/docker-k8s-ericsson-17-oct-2022
+ 1848  docker run -d --name net-test-10 -p 8081:8080 amitvashist7/docker-k8s-ericsson-17-oct-2022
+ 1849  docker ps
+ 1850  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -q)
+ 1851  systemctl  status docker
+ 1852  docker ps
+ 1853  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -q)
+ 1854  docker stop net-test-10
+ 1855  docker kill net-test-10
+ 1856  docker run -d --name net-test-11 -p 8082:8080 amitvashist7/docker-k8s-ericsson-17-oct-2022
+ 1857  docker run -d --name net-test-12 -p 8083:8080 amitvashist7/docker-k8s-ericsson-17-oct-2022
+ 1858  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -q)
+ 1859  docker start net-test-10
+ 1860  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -q)
+ 1861  systemctl  status docker
+ 1862  docker ps
+ 1863  netstat -tulnp
+ 1864  docker run -d --name net-test-13 -P amitvashist7/docker-k8s-ericsson-17-oct-2022
+ 1865  docker run -d --name net-test-14 -P amitvashist7/docker-k8s-ericsson-17-oct-2022
+ 1866  docker ps
+ 1867  docker images
+ 1868  docker history myapache-test-img
+ 1869  docker history myapache-test-img:v5
+ 1870  docker run -d --name net-test-15 -P myapache-test-img:v5
+ 1871  docker ps
+ 1872  docker kill $(docker ps -qa)
+ 1873  docker ps -l
+ 1874  docker start net-test-15
+```
