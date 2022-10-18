@@ -146,3 +146,26 @@
  1474  curl 172.17.0.7
  1475  docker run -d --name test-tiny-2 -P  amitvashist7/k8s-tiny-web
 ```
+
+# Demo 5 : ( Docker Custome Image Build ) 
+```
+1497  mkdir 02-DockerFile/apache/v1 -p
+ 1498  ls
+ 1499  cd 02-DockerFile/apache/v1/
+ 1500  ls
+ 1501  vim Dockerfile
+ 1502  ls
+ 1503  docker build -t myapache-test-img:v1 .
+ 1504  docker build -t myapache-test-img:v1 .  --no-cache
+ 1505  cat Dockerfile
+ 1506  docker images
+ 1507  docker rmi 73332da25b30
+ 1508  docker rmi 73332da25b30 --force
+ 1509  docker images
+ 1510  ls
+ 1511  docker images
+ 1512  docker run -d myapache-test-img:v1
+ 1513  docker ps
+ 1514  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -aq)
+ 1515  curl 172.17.0.2
+```
