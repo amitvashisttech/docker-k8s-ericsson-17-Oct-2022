@@ -310,3 +310,80 @@
  1685  docker push amitvashist7/docker-k8s-ericsson-17-oct-2022:v6
  1686  docker push amitvashist7/docker-k8s-ericsson-17-oct-2022:latest
 ```
+
+# Demo: 7 ( Docker Volumes ) 
+
+```
+ 1714  docker volume ls
+ 1715  docker volume create my-vol
+ 1716  docker volume ls
+ 1717  docker volume inspect my-vol
+ 1718  ls -ltr /var/lib/docker/volumes/my-vol/_data/
+ 1719  docker run -it --name vol-test-1 -v my-vol:/myapp ubuntu:16.04
+ 1720  docker ps
+ 1721  ls -ltr /var/lib/docker/volumes/my-vol/_data/
+ 1722  cat  /var/lib/docker/volumes/my-vol/_data/hello.txt
+ 1723  hostname
+ 1724  hostname -i
+ 1725  hostname >> /var/lib/docker/volumes/my-vol/_data/hello.txt
+ 1726  hostname -f
+ 1727  hostname -f >> /var/lib/docker/volumes/my-vol/_data/hello.txt
+ 1728  date >> /var/lib/docker/volumes/my-vol/_data/hello.txt
+ 1729  cat  /var/lib/docker/volumes/my-vol/_data/hello.txt
+ 1730  docker ps
+ 1731  docker attach vol-test-1
+ 1732  history
+ 1733  docker ps
+ 1734  docker ps -a
+ 1735  docker rm vol-test-1
+ 1736  docker ps -a
+ 1737  docker volume ls
+ 1738  docker run -it --name vol-test-2 -v my-vol:/myapp ubuntu:16.04
+ 1739  docker ps
+ 1740  docker run -itd --name vol-test-3 -v my-vol:/myapp ubuntu:16.04
+ 1741  docker run -itd --name vol-test-4 -v my-vol:/myapp ubuntu:16.04
+ 1742  docker ps
+ 1743  docker inspect vol-test-2
+ 1744  ls
+ 1745  docker ps
+ 1746  docker volumes ls
+ 1747  docker volume ls
+ 1748  docker run -itd --name vol-test-5 -v /myapp -v /amit ubuntu:16.04
+ 1749  docker ps
+ 1750  docker inspect vol-test-5
+ 1751  ls
+ 1752  docker volume ls
+ 1753  docker kill $(docker ps -qa)
+ 1754  docker rm $(docker ps -qa)
+ 1755  docker volume ls
+ 1756  docker run -itd --name vol-test-6 -v my-vol:/myapp ubuntu:16.04
+ 1757  docker run -itd --name vol-test-7 -v my-vol:/myapp:ro ubuntu:16.04
+ 1758  ls
+ 1759  docker ps
+ 1760  docker attach vol-test-7
+ 1761  docker attach vol-test-6
+ 1762  docker ps
+ 1763  ls -ltr /var/lib/docker/volumes/
+ 1764  ls
+ 1765  pwd
+ 1766  docker run -itd --name vol-test-8 -v /root/docker-k8s-ericsson-17-Oct-2022:/myapp:ro ubuntu:16.04
+ 1767  docker run -itd --name vol-test-9 -v /root/docker-k8s-ericsson-17-Oct-2022:/myapp ubuntu:16.04
+ 1768  docker volume ls
+ 1769  docker inspect vol-test-8
+ 1770  docker attach vol-test-8
+ 1771  docker attach vol-test-9
+ 1772  ls
+ 1773  cd 01-Docker/
+ 1774  ls
+ 1775  history
+ 1776  docker kill $(docker ps -qa)
+ 1777* docker volume ls 0
+ 1778  docker volume ls -q
+ 1779  docker volume rm $(docker volume ls -q)
+ 1780  docker volume rm $(docker volume ls -q) --force
+ 1781  ls
+ 1782  docker ps -a
+ 1783  docker rm $(docker ps -qa)
+ 1784  docker volume rm $(docker volume ls -q) --force
+ 1785  docker volume ls
+```
