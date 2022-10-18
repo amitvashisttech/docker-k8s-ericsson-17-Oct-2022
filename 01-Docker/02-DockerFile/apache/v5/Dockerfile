@@ -1,0 +1,27 @@
+# Base Image
+FROM ubuntu:16.04 
+
+# Who's the maintainer
+MAINTAINER Amit Vashist <amitvashist7@outlook.com>
+
+# Update the APT Repo 
+RUN apt-get update 
+
+# Install Apache Packages
+RUN apt-get install apache2 -y
+
+# Deploy Custom Web Page
+COPY index.html /var/www/html/ 
+
+# Custom Web Page 2 
+RUN echo "Welcome to MyApache Custom Web Page" >> /var/www/html/info.html ; date >> /var/www/html/info.html
+
+# Deploy Custom Port Configuration
+COPY ports.conf /etc/apache2/
+
+# My App Listen to following Port
+EXPOSE 9090
+EXPOSE 8081 
+
+# Bring Up Apache Service 
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]

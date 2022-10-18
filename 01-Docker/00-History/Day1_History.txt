@@ -169,3 +169,144 @@
  1514  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -aq)
  1515  curl 172.17.0.2
 ```
+
+# Demo 6 : ( Docker Multi Images ) 
+```
+ 1550  docker build -t myapache-test-img:v2 .
+ 1551  docker images
+ 1552  docker run -d myapache-test-img:v2
+ 1553  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -aq)
+ 1554  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -q)
+ 1555  curl 172.17.0.3
+ 1556  curl 172.17.0.2
+ 1557  curl 172.17.0.3
+ 1558  ls
+ 1559  cat index.html
+ 1560  cat Dockerfile
+ 1561  ls
+ 1562  cd ..
+ 1563  ls
+ 1564  curl 172.17.0.3
+ 1565  curl -vv 172.17.0.3
+ 1566  ls
+ 1567  cp -rf v2 v3
+ 1568  ls
+ 1569  cd v3/
+ 1570  ls
+ 1571  vim index.html
+ 1572  ls
+ 1573  vim ports.conf
+ 1574  ls
+ 1575  vim Dockerfile
+ 1576  ls
+ 1577  docker build -t myapache-test-img:v3 .
+ 1578  docker run -d myapache-test-img:v3
+ 1579  docker ps
+ 1580  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -q)
+ 1581  curl 172.17.0.2
+ 1582  curl 172.17.0.3
+ 1583  curl 172.17.0.3 -v
+ 1584  curl 172.17.0.4
+ 1585  docker ps
+ 1586  docker inspect a299186463c2
+ 1587  docker ps
+ 1588  curl 172.17.0.4
+ 1589  curl 172.17.0.4 -vv
+ 1590  curl 172.17.0.4:9090
+ 1591  ls
+ 1592  cd ..
+ 1593  ls
+ 1594  cp -rf v3 v4
+ 1595  ls
+ 1596  cd v4/
+ 1597  ls
+ 1598  vim Dockerfile
+ 1599  docker build -t myapache-test-img:v4 .
+ 1600  docker run -d myapache-test-img:v4
+ 1601  docker ps
+ 1602  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -q)
+ 1603  curl 172.17.0.5:9090
+ 1604  docker run -d --name test-1 myapache-test-img:v4
+ 1605  docker ps
+ 1606  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -q)
+ 1607  curl 172.17.0.6
+ 1608  curl 172.17.0.6:9090
+ 1609  docker run -d --name test-1 myapache-test-img:v4
+ 1610  ls
+ 1611  cd ..
+ 1612  ls
+ 1613  cp -rf v4 v5
+ 1614  ls
+ 1615  cd v5/
+ 1616  ls
+ 1617  vim ports.conf
+ 1618  ls
+ 1619  vim Dockerfile
+ 1620  ls
+ 1621  cat ports.conf
+ 1622  vim index.html
+ 1623  ls
+ 1624  docker build -t myapache-test-img:v5 .
+ 1625  docker images
+ 1626  docker run -d --name test-2 myapache-test-img:v5
+ 1627  docker ps
+ 1628  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}'  $(docker ps -q)
+ 1629  curl 172.17.0.7:9090
+ 1630  curl 172.17.0.7
+ 1631  curl 172.17.0.7:8081
+ 1632  curl 172.17.0.7:8081/info.html
+ 1633  date
+ 1634  ls
+ 1635  cd ..
+ 1636  ks
+ 1637  ls
+ 1638  cp -rf v5 v6
+ 1639  ls
+ 1640  cd v6/
+ 1641  ls
+ 1642  vim ports.conf
+ 1643  vim index.html
+ 1644  ls
+ 1645  mv Dockerfile amit-file
+ 1646  ls
+ 1647  docker build -t myapache-test-img:v6 .
+ 1648  vim amit-file
+ 1649  docker build -t myapache-test-img:v6 .
+ 1650  ls
+ 1651  docker build -t myapache-test-img:v6 .
+ 1652  ls
+ 1653  docker build -t myapache-test-img:v6 -f amit-file .
+ 1654  docker images
+ 1655  docker run -d --name test-3 myapache-test-img:v6
+ 1656  docker ps
+ 1657  curl 172.17.0.8
+ 1658  curl 172.17.0.8:8081
+ 1659  curl 172.17.0.8:9090
+ 1660  curl 172.17.0.8:8080
+ 1661  curl 172.17.0.8:8080/info.html
+ 1662  curl 172.17.0.7:8081/info.html
+ 1663  ls
+ 1664  docker images
+ 1665  docker push myapache-test-img:v6
+ 1666  docker login
+ 1667  docker push myapache-test-img:v6
+ 1668  docker images
+ 1669  docker tag myapache-test-img:v6 amitvashist7/docker-k8s-ericsson-17-oct-2022:v6
+ 1670  docker images
+ 1671  docker tag myapache-test-img:v5 amitvashist7/docker-k8s-ericsson-17-oct-2022:v5
+ 1672  docker tag myapache-test-img:v4 amitvashist7/docker-k8s-ericsson-17-oct-2022:v4
+ 1673  docker images
+ 1674  docker tag myapache-test-img:v6 amitvashist7/docker-k8s-ericsson-17-oct-2022:latest
+ 1675  docker images
+ 1676  docker push amitvashist7/docker-k8s-ericsson-17-oct-2022:v4
+ 1677  docker images
+ 1678  docker rmi myapache-test-img:v6
+ 1679  docker images
+ 1680  docker ps
+ 1681  iptables -L
+ 1682  ls
+ 1683  docker images
+ 1684  docker push amitvashist7/docker-k8s-ericsson-17-oct-2022:v5
+ 1685  docker push amitvashist7/docker-k8s-ericsson-17-oct-2022:v6
+ 1686  docker push amitvashist7/docker-k8s-ericsson-17-oct-2022:latest
+```
