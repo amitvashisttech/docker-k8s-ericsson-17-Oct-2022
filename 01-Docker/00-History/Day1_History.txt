@@ -466,3 +466,35 @@
  1873  docker ps -l
  1874  docker start net-test-15
 ```
+
+# Demo 9: ( Docker Extra ) 
+```
+1886  git add . ; git commit -m "00-History" ; git push
+ 1887  ls
+ 1888  docker ps
+ 1889  docker network ls
+ 1890  docker network inspect cecda8698900
+ 1891  ls
+ 1892  docker network create --help
+ 1893  docker network create --driver bridge --subnet 172.28.0.0/16 --ip-range 172.28.5.0/24 --gateway 172.28.5.254 mybr0
+ 1894  docker ps
+ 1895  docker network ls
+ 1896  docker network inspect mybr0
+ 1897  ip addr
+ 1898  docker run -itd --name test-nw-1 amitvashist7/network-multitool
+ 1899  docker ps
+ 1900  docker exec -it test-nw-1 bash
+ 1901  docker exec -it test-nw-1 sh
+ 1902  docker network ls
+ 1903  docker ps
+ 1904  docker run -itd --name test-nw-2 --network mybr0 amitvashist7/network-multitool
+ 1905  docker ps
+ 1906  docker exec -it test-nw-2  ip addr
+ 1907  docker exec -it test-nw-2  ping -c2 google.com
+ 1908  docker exec -it test-nw-2  route -n
+ 1909  iptables -L
+ 1910  ls
+ 1911  docker ps
+ 1912  docker exec -it net-test-15 bash
+ 1913  docker ps
+```
